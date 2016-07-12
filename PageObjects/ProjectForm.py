@@ -21,15 +21,70 @@ class ProjectForm(BasePage):
         (Select(self.driver.find_element(*ProjectFormLoc.FIELD_COUNTRY)).
             select_by_visible_text(option))
 
+    def set_delivery_customer(self, value):
+        """Set delivery customer field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_DELIVERY_CUSTOMER).
+            send_keys(value))
+
+    def set_channel_partner(self, value):
+        """Set channel partner field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_CHANNEL_PARTNER).
+            send_keys(value))
+
+    def set_pa_number(self, value):
+        """Set project accounting # field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_PA_NUMBER).
+            send_keys(value))
+
+    def set_indirect_salesforce_number(self, value):
+        """Set indirect salesforce # field"""
+        (self.driver.find_element
+            (*ProjectFormLoc.FIELD_INDIRECT_SALESFORCE_NUMBER)).send_keys(value)
+
     def set_project_name(self, value):
         """Set project name field"""
         (self.driver.find_element(*ProjectFormLoc.FIELD_PROJECT_NAME).
+            send_keys(value))
+
+    def set_project_description(self, value):
+        """Set project description field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_PROJECT_DESCRIPTION).
+            send_keys(value))
+
+    def set_no_third_party(self):
+        """Set no third party checkbox"""
+        self.driver.find_element(*ProjectFormLoc.FIELD_NO_THIRD_PARTY).click()
+
+    def set_stage(self, value):
+        """Set stage dropdown"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_STAGE).
             send_keys(value))
 
     def set_pt_status(self, option):
         """Set pt status dropdown"""
         (Select(self.driver.
                 find_element(*ProjectFormLoc.FIELD_PT_STATUS)).
+            select_by_visible_text(option))
+
+    def set_status_comment(self, value):
+        """Set status comment field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_STATUS_COMMENT).
+            send_keys(value))
+
+    def set_main_product(self, option):
+        """Set main product dropdown"""
+        (Select(self.driver.find_element(*ProjectFormLoc.FIELD_MAIN_PRODUCT)).
+            select_by_visible_text(option))
+
+    def set_scope(self, value):
+        """Set scope dropdown"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_SCOPE).
+            send_keys(value))
+
+    def set_revenue_recognition(self, option):
+        """Set revenue recognition dropdown"""
+        (Select(self.driver.find_element
+                (*ProjectFormLoc.FIELD_REVENUE_RECOGNITION)).
             select_by_visible_text(option))
 
     def set_salesperson(self, option):
@@ -43,21 +98,68 @@ class ProjectForm(BasePage):
         (self.driver.find_element(*ProjectFormLoc.FIELD_RSM).
             send_keys(value))
 
+    def set_sdm(self, value):
+        """Set service delivery manager field"""
+        (self.driver.find_element
+            (*ProjectFormLoc.FIELD_SDM).send_keys(value))
+
+    def set_pm(self, value):
+        """Set project manager field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_PROJECT_MANAGER).
+            send_keys(value))
+
     def set_solution_architect(self, value):
         """Set solution architect field"""
         (self.driver.find_element(*ProjectFormLoc.FIELD_SOLUTION_ARCHITECT).
             send_keys(value))
+
+    def set_contract_type(self, option):
+        """"Set contract type dropdown"""
+        (Select(self.driver.find_element(*ProjectFormLoc.FIELD_CONTRACT_TYPE)).
+            select_by_visible_text(option))
 
     def set_contract_closure(self, value):
         """Set contract closure date field"""
         (self.driver.find_element(*ProjectFormLoc.FIELD_CONTRACT_CLOSURE).
             send_keys(value))
 
+    def set_start_date(self, value):
+        """Set start date field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_START_DATE).
+            send_keys(value))
+
+    def set_end_date(self, value):
+        """Set end_date_field"""
+        end_date = self.driver.find_element(*ProjectFormLoc.FIELD_END_DATE)
+        end_date.clear()
+        end_date.send_keys(value)
+
     def set_contract_currency(self, option):
         """Set contract currency dropdown"""
         (Select(self.driver.
                 find_element(*ProjectFormLoc.FIELD_CONTRACT_CURRENCY)).
             select_by_visible_text(option))
+
+    def set_billable_unit(self, option):
+        """Set billable unit field"""
+        (Select(self.driver.find_element(*ProjectFormLoc.FIELD_BILLABLE_UNIT)).
+            select_by_visible_text(option))
+
+    def set_contract_amount(self, value):
+        """Set contract amount field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_CONTRACT_AMOUNT).
+            send_keys(value))
+
+    def set_payment_schedule(self, option):
+        """Set payment schedule dropdown"""
+        (Select(self.driver.find_element
+                (*ProjectFormLoc.FIELD_PAYMENT_SCHEDULE)).
+            select_by_visible_text(option))
+
+    def set_payment_comment(self, value):
+        """Set payment comment field"""
+        (self.driver.find_element(*ProjectFormLoc.FIELD_PAYMENT_COMMENT).
+            send_keys(value))
 
     def click_save_button(self):
         """Click form save button"""
