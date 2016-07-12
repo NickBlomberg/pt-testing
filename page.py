@@ -14,6 +14,10 @@ class BasePage(object):
         actual = self.driver.find_element(*GlobalLoc.USER_MESSAGE).text
         assert(expected in actual)
 
+    def check_page_title(self, expected):
+        """Check that the browser title matches expected value"""
+        assert expected == self.driver.title
+
 
 class LoginPage(BasePage):
     """Define interactions with the login page"""
@@ -55,7 +59,3 @@ class LoginPage(BasePage):
 
 class DashboardPage(BasePage):
     """Define interactions with the dashboard page"""
-
-    def is_title_correct(self):
-        """Check page title matches expected value"""
-        assert 'Project Tracker' in self.driver.title

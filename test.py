@@ -11,7 +11,7 @@ class LoginTestCase(BaseTestCase):
     def test_successful_login(self):
         """Test using the correct login credentials"""
         login_page = page.LoginPage(self.driver)
-        login_page.is_title_correct()
+        login_page.check_page_title("Log In")
         login_page.set_email('sharenet.admin@redhat.com')
         login_page.set_password('redhat')
         login_page.click_login_button()
@@ -33,7 +33,7 @@ class DashboardTestCase(BaseTestCase):
         page.LoginPage(self.driver).default_login()
 
         dashboard_page = page.DashboardPage(self.driver)
-        dashboard_page.is_title_correct()
+        dashboard_page.check_page_title("Project Tracker")
 
 
 class ProjectFormTestCase(BaseTestCase):
