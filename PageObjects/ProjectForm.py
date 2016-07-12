@@ -232,6 +232,3 @@ class ProjectForm(BasePage):
 
         assert '<h2>Tasks</h2>' \
             in self.driver.page_source, 'Tasks title missing'
-
-        assert '<h2>Central Proposal Board Escalation</h2>' \
-            in self.driver.page_source, 'CPB title missing'
