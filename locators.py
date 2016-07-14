@@ -5,6 +5,10 @@ class GlobalLoc(object):
     """Provide locators for elements found on every page"""
     USER_MESSAGE = (By.XPATH, '//div[./@id="user-message"]/ul/li')
 
+    FIELD_SEARCH = (By.NAME, 'q')
+
+    BUTTON_SEARCH = (By.XPATH, '//input[./@name="q"]/following::input[1]')
+
 
 class LoginPageLoc(object):
     """Provide locators for elements found in the login page"""

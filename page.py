@@ -18,6 +18,16 @@ class BasePage(object):
         """Check that the browser title matches expected value"""
         assert expected == self.driver.title
 
+    def set_search(self, keywords):
+        """Set search field"""
+        field = self.driver.find_element(*GlobalLoc.FIELD_SEARCH)
+        field.clear()
+        field.send_keys(keywords)
+
+    def click_search_button(self):
+        """Click the search Go button"""
+        self.driver.find_element(*GlobalLoc.BUTTON_SEARCH).click()
+
 
 class LoginPage(BasePage):
     """Define interactions with the login page"""
