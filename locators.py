@@ -79,3 +79,26 @@ class ProjectFormLoc(object):
                           'following-sibling::div[1]')
 
     BUTTON_SAVE = (By.NAME, 'formbutton:save')
+
+
+class TaskFormLoc(object):
+    """Provide locators for elements of the task form"""
+    FIELD_TASK_NUMBER = (By.NAME, 'task_number')
+    FIELD_TASK_NAME = (By.NAME, 'task_name')
+    FIELD_IMPORTANT_INFORMATION = (By.NAME, 'task_description')
+    FIELD_DELIVERY_ADDRESS = (By.NAME, 'location')
+    FIELD_BUSINESS_UNITS = (By.NAME, 'business_units')
+    FIELD_ADD_SOLUTIONS = (By.NAME, 'add_solutions')
+    FIELD_TIMESHEETS_REQUIRED = (By.NAME, 'timesheets_required_p')
+    FIELD_CUSTOMER_CONTACT = (By.NAME, 'contact')
+    FIELD_PROJECT_MANAGER = (By.NAME, 'project_mgr')
+    FIELD_SOLUTION_ARCHITECT = (By.NAME, 'solution_architect')
+    FIELD_NOTIFY_CONSULTANTS = (By.NAME, 'notify_assignee_p')
+    FIELD_NUM_UNITS = (By.NAME, 'time_total')
+    FIELD_LABOUR_RATE = (By.NAME, 'labour_rate')
+    FIELD_EXPENSE_RATE = (By.NAME, 'expense_rate')
+    FIELD_CONTRACT_RATE_PER_UNIT = (By.NAME, 'time_rate')
+    FIELD_ACCOUNTING_RATE_PER_UNIT = (By.NAME, 'acc_time_rate')
+    FIELD_EXPENSES = (By.NAME, 'expenses')
+    FIELD_EXPENSE_CONDITIONS = (By.NAME, 'expenses_conditions')
+    FIELD_AUTOSYNC_DELIVERIES = (By.NAME, 'allow_auto_synch_p')
