@@ -97,10 +97,10 @@ class TaskFormLoc(object):
     FIELD_NUM_UNITS = (By.NAME, 'time_total')
     FIELD_LABOUR_RATE = (By.NAME, 'labour_rate')
     FIELD_EXPENSE_RATE = (By.NAME, 'expense_rate')
-    FIELD_CONTRACT_RATE_PER_UNIT = (By.NAME, 'time_rate')
-    FIELD_ACCOUNTING_RATE_PER_UNIT = (By.NAME, 'acc_time_rate')
+    FIELD_CONTRACT_RATE = (By.NAME, 'time_rate')
+    FIELD_ACCOUNTING_RATE = (By.NAME, 'acc_time_rate')
     FIELD_EXPENSES = (By.NAME, 'expenses')
-    FIELD_EXPENSE_CONDITIONS = (By.NAME, 'expenses_conditions')
+    FIELD_EXPENSE_CONDITIONS = (By.NAME, 'expense_conditions')
     FIELD_AUTOSYNC_DELIVERIES = (By.NAME, 'allow_auto_synch_p')
 
     ERROR_TASK_NUMBER = (By.XPATH, "//input[./@name='task_number']"

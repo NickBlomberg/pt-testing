@@ -132,3 +132,30 @@ class TaskFormTestCase(BaseTestCase):
         form.is_task_number_flagged()
         form.is_task_name_flagged()
         form.is_busines_unit_flagged()
+
+    def test_creating_full_task(self):
+        """Test filling all fields in the task form"""
+        page.LoginPage(self.driver).default_login()
+
+        self.driver.get('http://localhost:9000/projects-emea/task-edit?project_id=7290473')
+        form = TaskForm.TaskForm(self.driver)
+
+        form.set_task_number('2')
+        form.set_task_name('Selenium Test Task')
+        form.set_important_information('Important Information')
+        form.set_delivery_address('Delivery Address')
+        form.set_business_unit('Cloud')
+        form.set_add_solutions('Core Build')
+        form.set_timesheets_required('')
+        form.set_customer_contact('John Shepherd <john.shepherd@oup.com>')
+        form.set_project_manager('Irena Pribova (Nordics, Stockholm) [2144168]')
+        form.set_solution_architect('Rhys Oxenham (UKIE, Farnborough)')
+        form.set_num_units('999')
+        form.set_labour_rate('100')
+        form.set_expense_rate('20')
+        form.set_expenses('included')
+        form.set_expense_conditions('Expense Conditions')
+        form.set_autosync_deliveries('')
+
+        form.click_ok_button()
+        form.check_user_message('The project task has been created.')
