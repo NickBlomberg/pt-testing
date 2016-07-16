@@ -2,7 +2,7 @@ import unittest
 from selenium import webdriver
 from base import BaseTestCase
 import page
-from PageObjects import ProjectForm
+from PageObjects import ProjectForm, TaskForm
 
 
 class LoginTestCase(BaseTestCase):
@@ -118,3 +118,17 @@ class ProjectFormTestCase(BaseTestCase):
         form.click_save_button()
         form.is_creation_successful()
         form.check_user_message('The project has been created.')
+
+
+class TaskFormTestCase(BaseTestCase):
+    """Test functionality related to the task form"""
+    def test_blank_form_submit(self):
+        page.LoginPage(self.driver).default_login()
+
+        self.driver.get('http://localhost:9000/projects-emea/task-edit?project_id=7290473')
+        form = TaskForm.TaskForm(self.driver)
+        form.click_ok_button()
+
+        form.is_task_number_flagged()
+        form.is_task_name_flagged()
+        form.is_busines_unit_flagged()

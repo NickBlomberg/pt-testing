@@ -102,3 +102,14 @@ class TaskFormLoc(object):
     FIELD_EXPENSES = (By.NAME, 'expenses')
     FIELD_EXPENSE_CONDITIONS = (By.NAME, 'expenses_conditions')
     FIELD_AUTOSYNC_DELIVERIES = (By.NAME, 'allow_auto_synch_p')
+
+    ERROR_TASK_NUMBER = (By.XPATH, "//input[./@name='task_number']"
+                                   "/following::div[@class='form-error'][1]")
+
+    ERROR_TASK_NAME = (By.XPATH, "//input[./@name='task_name']"
+                                 "/following::div[@class='form-error'][1]")
+
+    ERROR_BUSINESS_UNIT = (By.XPATH, "//select[./@name='business_units']"
+                                     "/following::div[@class='form-error'][1]")
+
+    BUTTON_OK = (By.NAME, 'formbutton:ok')
