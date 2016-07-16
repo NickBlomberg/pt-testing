@@ -51,9 +51,15 @@ class ProjectForm(BasePage):
         (self.driver.find_element(*ProjectFormLoc.FIELD_PROJECT_DESCRIPTION).
             send_keys(value))
 
-    def set_no_third_party(self):
+    def set_no_third_party(self, check=True):
         """Set no third party checkbox"""
-        self.driver.find_element(*ProjectFormLoc.FIELD_NO_THIRD_PARTY).click()
+        field = self.driver.find_element(*ProjectFormLoc.FIELD_NO_THIRD_PARTY)
+
+        if field.is_selected() and not check:
+            field.click()
+
+        elif not field.is_selected() and check:
+            field.click()
 
     def set_stage(self, value):
         """Set stage dropdown"""

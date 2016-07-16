@@ -34,9 +34,15 @@ class TaskForm(BasePage):
         (Select(self.driver.find_element(*TaskFormLoc.FIELD_ADD_SOLUTIONS)).
             select_by_visible_text(option))
 
-    def set_timesheets_required(self, value):
+    def set_timesheets_required(self, check=True):
         """Set timesheets required checkbox"""
-        self.driver.find_element(*TaskFormLoc.FIELD_TIMESHEETS_REQUIRED).click()
+        field = self.driver.find_element(*TaskFormLoc.FIELD_TIMESHEETS_REQUIRED)
+
+        if field.is_selected() and not check:
+            field.click()
+
+        elif not field.is_selected() and check:
+            field.click()
 
     def set_customer_contact(self, value):
         """Set customer contact field"""
@@ -87,9 +93,15 @@ class TaskForm(BasePage):
         (self.driver.find_element(*TaskFormLoc.FIELD_EXPENSE_CONDITIONS).
             send_keys(value))
 
-    def set_autosync_deliveries(self, value):
-        """Set autosync deliveries field"""
-        self.driver.find_element(*TaskFormLoc.FIELD_AUTOSYNC_DELIVERIES).click()
+    def set_autosync_deliveries(self, check=True):
+        """Set autosync deliveries checkbox"""
+        field = self.driver.find_element(*TaskFormLoc.FIELD_AUTOSYNC_DELIVERIES)
+
+        if field.is_selected() and not check:
+            field.click()
+
+        elif not field.is_selected() and check:
+            field.click()
 
     def click_ok_button(self):
         """Click the ok button to save the form"""
