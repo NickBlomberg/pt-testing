@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from page import BasePage
+from base import BasePage
 
 
 class SearchResults(BasePage):

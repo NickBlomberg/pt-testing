@@ -1,5 +1,5 @@
 from selenium.webdriver.support.ui import Select
-from page import BasePage
+from base import BasePage
 from locators import TaskFormLoc
 
 
