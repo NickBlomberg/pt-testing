@@ -47,14 +47,20 @@ class ProjectFormTestCase(BaseTestCase):
         self.driver.implicitly_wait(5)
 
         form = ProjectForm.ProjectForm(self.driver)
+
+        # Region and RSM fields can sometimes be preset based on previous usage.
+        # Clear fields to check if these are mandatory.
+        form.set_region("-- please select --")
+        form.set_rsm("-- please select --")
+
         form.click_save_button()
 
-        # form.is_region_flagged() TODO find out why region is being preset
+        form.is_region_flagged()
         form.is_country_flagged()
         form.is_project_name_flagged()
         form.is_pt_status_flagged()
         form.is_salesperson_flagged()
-        # form.is_rsm_flagged() TODO find out why RSM is being preset
+        form.is_rsm_flagged()
         form.is_solution_architect_flagged()
         form.is_contract_close_flagged()
         form.is_contract_currency_flagged()
