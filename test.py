@@ -85,7 +85,7 @@ class ProjectFormTestCase(BaseTestCase):
         form.is_creation_successful()
         form.check_user_message('The project has been created.')
 
-    def test_createing_complete_project(self):
+    def test_creating_complete_project(self):
         """Create a project with all fields completed"""
         page.LoginPage(self.driver).default_login()
         self.driver.get(Data.config["url"]["project_form"])
