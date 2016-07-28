@@ -1,5 +1,9 @@
+# -*- coding: utf-8 -*-
+
+import sys
 import unittest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 from locators import GlobalLoc
 
@@ -26,6 +30,7 @@ class BasePage(object):
 
     def __init__(self, driver):
         self.driver = driver
+        self.breadcrumbs = []
 
     def check_user_message(self, expected):
         """Check if the expected user message is displayed"""
@@ -45,3 +50,22 @@ class BasePage(object):
     def click_search_button(self):
         """Click the search Go button"""
         self.driver.find_element(*GlobalLoc.BUTTON_SEARCH).click()
+
+    def verify_breadcrumbs(self):
+        """
+        Verify that breadcrumb text matches the expected contents for the current page.
+        Walk through a list of expected crumbs. Compare to the matching <li> element
+        in the breadcrumb section.
+        """
+
+        # Set encoding as all breadcrumbs include utf-8 symbol separators
+        reload(sys)
+        sys.setdefaultencoding("utf-8")
+
+        xpath = "//div[./@id='breadcrumbs']/ul/li[{0}]"
+
+        for crumb in range(1, len(self.breadcrumbs) + 1):
+            element = self.driver.find_element(By.XPATH, xpath.format(crumb))
+            contents = element.text.strip('» ')
+
+            assert self.breadcrumbs[crumb - 1] in contents

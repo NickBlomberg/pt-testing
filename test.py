@@ -40,6 +40,13 @@ class DashboardTestCase(BaseTestCase):
 class ProjectFormTestCase(BaseTestCase):
     """Test cases for the project form"""
 
+    def test_page_structure(self):
+        page.LoginPage(self.driver).default_login()
+        self.driver.get(Data.config["url"]["project_form"])
+
+        form = ProjectForm.ProjectForm(self.driver)
+        form.verify_breadcrumbs()
+
     def test_blank_form_submit(self):
         """Test submitting blank form results in flagged mandatory fields"""
         page.LoginPage(self.driver).default_login()

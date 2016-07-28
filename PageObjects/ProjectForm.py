@@ -6,6 +6,10 @@ from locators import ProjectFormLoc
 class ProjectForm(BasePage):
     """Define interaction with the project form"""
 
+    def __init__(self, driver):
+        self.driver = driver
+        self.breadcrumbs = ['DevPT', 'EMEA', 'Add Project']
+
     def set_salesforce_number(self, value):
         """Set Salesforce Opportunity # field"""
         (self.driver.find_element(*ProjectFormLoc.FIELD_SALESFORCE_NUMBER).
