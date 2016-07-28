@@ -30,6 +30,7 @@ class BasePage(object):
 
     def __init__(self, driver):
         self.driver = driver
+        self.title = ''
         self.breadcrumbs = []
 
     def check_user_message(self, expected):
@@ -50,6 +51,13 @@ class BasePage(object):
     def click_search_button(self):
         """Click the search Go button"""
         self.driver.find_element(*GlobalLoc.BUTTON_SEARCH).click()
+
+    def verify_page_title(self):
+        """Verify that the page title, and main heading match expected value"""
+        assert self.title in self.driver.title
+
+        element = self.driver.find_element(*GlobalLoc.AREA_PAGE_HEADING)
+        assert self.title in element.text
 
     def verify_breadcrumbs(self):
         """

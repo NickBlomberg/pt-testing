@@ -8,6 +8,7 @@ class ProjectForm(BasePage):
 
     def __init__(self, driver):
         self.driver = driver
+        self.title = 'Add Project'
         self.breadcrumbs = ['DevPT', 'EMEA', 'Add Project']
 
     def set_salesforce_number(self, value):

@@ -5,6 +5,8 @@ class GlobalLoc(object):
     """Provide locators for elements found on every page"""
     USER_MESSAGE = (By.XPATH, '//div[./@id="user-message"]/ul/li')
 
+    AREA_PAGE_HEADING = (By.XPATH, "//h1[./@class='page-title']")
+
     FIELD_SEARCH = (By.NAME, 'q')
 
     BUTTON_SEARCH = (By.XPATH, '//input[./@name="q"]/following::input[1]')

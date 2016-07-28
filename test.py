@@ -45,6 +45,7 @@ class ProjectFormTestCase(BaseTestCase):
         self.driver.get(Data.config["url"]["project_form"])
 
         form = ProjectForm.ProjectForm(self.driver)
+        form.verify_page_title()
         form.verify_breadcrumbs()
 
     def test_blank_form_submit(self):
