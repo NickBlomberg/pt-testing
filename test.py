@@ -1,6 +1,8 @@
+from selenium.webdriver.common.by import By
+
 from base import BaseTestCase
 import page
-from PageObjects import ProjectForm, TaskForm
+from PageObjects import ProjectForm, TaskForm, Search
 from data import Data
 
 
@@ -147,8 +149,11 @@ class TaskFormTestCase(BaseTestCase):
     def test_blank_form_submit(self):
         page.LoginPage(self.driver).default_login()
 
-        self.driver.get('http://localhost:9000/projects-emea/task-edit?project_id=7290473')
+        search = Search(self.driver)
+        search.navigate_to_task(pa_number=Data.config["project1"]["pa_number"])
+
         form = TaskForm(self.driver)
+        form.click_add_task_button()
         form.click_ok_button()
 
         form.is_task_number_flagged()
@@ -159,8 +164,11 @@ class TaskFormTestCase(BaseTestCase):
         """Test filling all fields in the task form"""
         page.LoginPage(self.driver).default_login()
 
-        self.driver.get('http://localhost:9000/projects-emea/task-edit?project_id=7290473')
+        search = Search(self.driver)
+        search.navigate_to_task(pa_number=Data.config["project1"]["pa_number"])
+
         form = TaskForm(self.driver)
+        form.click_add_task_button()
 
         form.set_task_number(Data.config["task1"]["number"])
         form.set_task_name(Data.config["task1"]["name"])

@@ -124,3 +124,7 @@ class TaskForm(BasePage):
         element = self.driver.find_element(*TaskFormLoc.ERROR_BUSINESS_UNIT)
         assert('Business Unit is required' in element.text), \
             'Business unit error missing'
+
+    def click_add_task_button(self):
+        """Click Add Task button found on the task list"""
+        self.driver.find_element(*TaskFormLoc.BUTTON_ADD_TASK).click()

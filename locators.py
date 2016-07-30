@@ -115,3 +115,4 @@ class TaskFormLoc(object):
                                      "/following::div[@class='form-error'][1]")
 
     BUTTON_OK = (By.NAME, 'formbutton:ok')
+    BUTTON_ADD_TASK = (By.XPATH, "//a[text()='Add Task']")
