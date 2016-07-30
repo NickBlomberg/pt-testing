@@ -1,5 +1,3 @@
-import unittest
-from selenium import webdriver
 from base import BaseTestCase
 import page
 from PageObjects import ProjectForm, TaskForm
@@ -44,7 +42,7 @@ class ProjectFormTestCase(BaseTestCase):
         page.LoginPage(self.driver).default_login()
         self.driver.get(Data.config["url"]["project_form"])
 
-        form = ProjectForm.ProjectForm(self.driver)
+        form = ProjectForm(self.driver)
         form.verify_page_title()
         form.verify_breadcrumbs()
 
@@ -54,7 +52,7 @@ class ProjectFormTestCase(BaseTestCase):
         self.driver.get(Data.config["url"]["project_form"])
         self.driver.implicitly_wait(5)
 
-        form = ProjectForm.ProjectForm(self.driver)
+        form = ProjectForm(self.driver)
 
         # Region and RSM fields can sometimes be preset based on previous usage.
         # Clear fields to check if these are mandatory.
@@ -78,7 +76,7 @@ class ProjectFormTestCase(BaseTestCase):
         page.LoginPage(self.driver).default_login()
         self.driver.get(Data.config["url"]["project_form"])
 
-        form = ProjectForm.ProjectForm(self.driver)
+        form = ProjectForm(self.driver)
         form.set_region(Data.config["project1"]["region"])
         form.set_country(Data.config["project1"]["country"])
         form.set_project_name(Data.config["project1"]["name"])
@@ -98,7 +96,7 @@ class ProjectFormTestCase(BaseTestCase):
         page.LoginPage(self.driver).default_login()
         self.driver.get(Data.config["url"]["project_form"])
 
-        form = ProjectForm.ProjectForm(self.driver)
+        form = ProjectForm(self.driver)
 
         # General section
         form.set_salesforce_number(Data.config["project1"]["salesforce"])
@@ -150,7 +148,7 @@ class TaskFormTestCase(BaseTestCase):
         page.LoginPage(self.driver).default_login()
 
         self.driver.get('http://localhost:9000/projects-emea/task-edit?project_id=7290473')
-        form = TaskForm.TaskForm(self.driver)
+        form = TaskForm(self.driver)
         form.click_ok_button()
 
         form.is_task_number_flagged()
@@ -162,7 +160,7 @@ class TaskFormTestCase(BaseTestCase):
         page.LoginPage(self.driver).default_login()
 
         self.driver.get('http://localhost:9000/projects-emea/task-edit?project_id=7290473')
-        form = TaskForm.TaskForm(self.driver)
+        form = TaskForm(self.driver)
 
         form.set_task_number(Data.config["task1"]["number"])
         form.set_task_name(Data.config["task1"]["name"])
