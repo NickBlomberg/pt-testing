@@ -176,6 +176,11 @@ class ProjectForm(BasePage):
         """Click form save button"""
         self.driver.find_element(*ProjectFormLoc.BUTTON_SAVE).click()
 
+    def click_delete_button(self):
+        """Click project delete button"""
+        self.driver.find_element(*ProjectFormLoc.BUTTON_DELETE).click()
+        self.driver.find_element(*ProjectForm.BUTTON_CONFIRM_DELETE).click()
+
     def is_region_flagged(self):
         """Check region field for an error"""
         element = self.driver.find_element(*ProjectFormLoc.ERROR_REGION)

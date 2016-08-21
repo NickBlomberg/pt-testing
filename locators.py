@@ -81,7 +81,8 @@ class ProjectFormLoc(object):
                           'following-sibling::div[1]')
 
     BUTTON_SAVE = (By.NAME, 'formbutton:save')
-
+    BUTTON_DELETE = (By.XPATH, "//a[text()='Delete']")
+    BUTTON_CONFIRM_DELETE = (By.NAME, 'formbutton:delete')
 
 class TaskFormLoc(object):
     """Provide locators for elements of the task form"""
